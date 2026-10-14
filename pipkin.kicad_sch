@@ -3561,17 +3561,6 @@
 		)
 		(uuid "b0f0ca1f-9a57-4d3b-90f3-e26b31495fe0")
 	)
-	(text "Additional pin functions:\nhttps://pinout.xyz/"
-		(exclude_from_sim no)
-		(at 300.736 267.462 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f821f61c-6b6a-4864-ace3-a78a834a9305")
-	)
 	(junction
 		(at 331.47 113.03)
 		(diameter 0)
@@ -3701,6 +3690,10 @@
 	(no_connect
 		(at 179.07 62.23)
 		(uuid "16e0f38d-32cb-445f-bec8-d4e6386f3642")
+	)
+	(no_connect
+		(at 148.59 85.09)
+		(uuid "21af2155-3073-4743-88f2-3ac8e9c046fc")
 	)
 	(no_connect
 		(at 163.83 27.94)
@@ -10709,83 +10702,6 @@
 			(project "pipkin"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR033")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
-		(at 148.59 85.09 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "e8894ed6-d6a6-433f-b801-9302b78eec0a")
-		(property "Reference" "#PWR022"
-			(at 148.59 81.28 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "VBAT"
-			(at 145.034 87.122 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 148.59 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 148.59 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 148.59 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "35fdc245-d085-4149-91db-45f933f672c0")
-		)
-		(instances
-			(project "pipkin"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "#PWR022")
 					(unit 1)
 				)
 			)
