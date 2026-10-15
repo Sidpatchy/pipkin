@@ -4421,6 +4421,12 @@
 		(uuid "6b91fd35-4204-4b53-a0ec-2db6b54e92a3")
 	)
 	(junction
+		(at 116.84 156.21)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6c498ae2-c639-4b76-8571-2b5758ad063b")
+	)
+	(junction
 		(at 321.31 39.37)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5278,6 +5284,16 @@
 	)
 	(wire
 		(pts
+			(xy 116.84 156.21) (xy 119.38 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fbcbd641-6b5f-4b02-8282-c3f0fa6259cc")
+	)
+	(wire
+		(pts
 			(xy 123.19 130.81) (xy 123.19 128.27)
 		)
 		(stroke
@@ -5295,16 +5311,6 @@
 			(justify left bottom)
 		)
 		(uuid "034fd61e-6381-4ca0-8883-656d7baf592c")
-	)
-	(label "TX"
-		(at 114.3 57.15 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "04ca569b-8299-46fc-8055-be19cf49d57a")
 	)
 	(label "NSS_CTS"
 		(at 48.26 52.07 180)
@@ -5345,6 +5351,16 @@
 			(justify right bottom)
 		)
 		(uuid "2b728320-a0d2-4068-bdb0-4eccb30c43da")
+	)
+	(label "TX"
+		(at 114.3 62.23 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "31938fc0-5eca-4d52-8954-7d6f059dca66")
 	)
 	(label "BUSY"
 		(at 91.44 54.61 0)
@@ -6218,6 +6234,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 114.3 57.15 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "08c5f13a-22b0-4b1d-9c65-3faca4506b95")
+		(property "Reference" "#PWR022"
+			(at 120.65 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 117.602 57.15 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 114.3 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 114.3 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2152ce6b-015d-4b95-8dc3-62baa78bd979")
+		)
+		(instances
+			(project "pipkin"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(reference "#PWR022")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small_US")
 		(at 129.54 90.17 270)
 		(unit 1)
@@ -6226,7 +6320,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "09b85657-ad4f-403a-9175-9d82d8095170")
 		(property "Reference" "R17"
 			(at 130.048 85.598 90)
@@ -6579,7 +6673,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 116.84 171.45 0)
+		(at 119.38 171.45 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6590,7 +6684,7 @@
 		(fields_autoplaced yes)
 		(uuid "11a6a16e-9061-423d-a35f-e2dd6adee07f")
 		(property "Reference" "#PWR013"
-			(at 116.84 177.8 0)
+			(at 119.38 177.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6601,7 +6695,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 116.84 176.53 0)
+			(at 119.38 176.53 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6611,7 +6705,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 116.84 171.45 0)
+			(at 119.38 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6622,7 +6716,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 116.84 171.45 0)
+			(at 119.38 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6633,7 +6727,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 116.84 171.45 0)
+			(at 119.38 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7374,7 +7468,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "2b3eded4-2105-4bc1-9f10-23ff425bb16a")
 		(property "Reference" "R18"
 			(at 130.048 93.218 90)
@@ -9219,6 +9313,7 @@
 	(symbol
 		(lib_id "Connector:Conn_01x03_Pin")
 		(at 109.22 59.69 0)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9226,10 +9321,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "64afbf60-30db-453a-89ca-2866a08f4283")
 		(property "Reference" "J3"
-			(at 109.855 52.07 0)
+			(at 109.855 67.31 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9239,7 +9333,7 @@
 			)
 		)
 		(property "Value" "UART"
-			(at 109.855 54.61 0)
+			(at 109.855 64.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10492,84 +10586,6 @@
 			(project "pipkin"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "R9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 114.3 62.23 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "8ada9d7a-e45b-40f6-8b93-5df3407a1de2")
-		(property "Reference" "#PWR022"
-			(at 120.65 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 117.602 62.23 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 114.3 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6c136bc1-bf2c-4045-a59f-2efc097dab6c")
-		)
-		(instances
-			(project "pipkin"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -12489,7 +12505,7 @@
 		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "d8e96abc-9570-4408-8f40-bec510c4fb02")
 		(property "Reference" "JP2"
 			(at 121.666 159.512 0)
