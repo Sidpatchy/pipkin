@@ -7641,7 +7641,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 107.95 144.78 0)
 			(hide yes)
 			(show_name no)
@@ -12264,7 +12264,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 107.95 161.29 0)
 			(hide yes)
 			(show_name no)
@@ -12502,7 +12502,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 116.84 161.29 0)
 			(hide yes)
 			(show_name no)
