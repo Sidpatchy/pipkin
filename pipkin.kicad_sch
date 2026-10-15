@@ -757,7 +757,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector:Conn_01x04_Pin"
+		(symbol "Connector_Generic_MountingPin:Conn_01x04_MountingPin"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -777,14 +777,15 @@
 					)
 				)
 			)
-			(property "Value" "Conn_01x04_Pin"
-				(at 0 -7.62 0)
+			(property "Value" "Conn_01x04_MountingPin"
+				(at 1.27 -7.62 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
 			(property "Footprint" ""
@@ -809,21 +810,11 @@
 					)
 				)
 			)
-			(property "Description" "Generic connector, single row, 01x04, script generated"
+			(property "Description" "Generic connectable mounting pin connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -841,7 +832,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
+			(property "ki_fp_filters" "Connector*:*_1x??-1MP*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -852,54 +843,65 @@
 					)
 				)
 			)
-			(symbol "Conn_01x04_Pin_1_1"
+			(symbol "Conn_01x04_MountingPin_1_1"
 				(rectangle
-					(start 0.8636 2.667)
+					(start -1.27 3.81)
+					(end 1.27 -6.35)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(rectangle
+					(start -1.27 2.667)
 					(end 0 2.413)
 					(stroke
 						(width 0.1524)
 						(type default)
 					)
 					(fill
-						(type outline)
+						(type none)
 					)
 				)
 				(rectangle
-					(start 0.8636 0.127)
+					(start -1.27 0.127)
 					(end 0 -0.127)
 					(stroke
 						(width 0.1524)
 						(type default)
 					)
 					(fill
-						(type outline)
+						(type none)
 					)
 				)
 				(rectangle
-					(start 0.8636 -2.413)
+					(start -1.27 -2.413)
 					(end 0 -2.667)
 					(stroke
 						(width 0.1524)
 						(type default)
 					)
 					(fill
-						(type outline)
+						(type none)
 					)
 				)
 				(rectangle
-					(start 0.8636 -4.953)
+					(start -1.27 -4.953)
 					(end 0 -5.207)
 					(stroke
 						(width 0.1524)
 						(type default)
 					)
 					(fill
-						(type outline)
+						(type none)
 					)
 				)
 				(polyline
 					(pts
-						(xy 1.27 2.54) (xy 0.8636 2.54)
+						(xy -1.016 -7.112) (xy 1.016 -7.112)
 					)
 					(stroke
 						(width 0.1524)
@@ -909,44 +911,16 @@
 						(type none)
 					)
 				)
-				(polyline
-					(pts
-						(xy 1.27 0) (xy 0.8636 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -2.54) (xy 0.8636 -2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -5.08) (xy 0.8636 -5.08)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
+				(text "Mounting"
+					(at 0 -6.731 0)
+					(effects
+						(font
+							(size 0.381 0.381)
+						)
 					)
 				)
 				(pin passive line
-					(at 5.08 2.54 180)
+					(at -5.08 2.54 0)
 					(length 3.81)
 					(name "Pin_1"
 						(effects
@@ -964,7 +938,7 @@
 					)
 				)
 				(pin passive line
-					(at 5.08 0 180)
+					(at -5.08 0 0)
 					(length 3.81)
 					(name "Pin_2"
 						(effects
@@ -982,7 +956,7 @@
 					)
 				)
 				(pin passive line
-					(at 5.08 -2.54 180)
+					(at -5.08 -2.54 0)
 					(length 3.81)
 					(name "Pin_3"
 						(effects
@@ -1000,7 +974,7 @@
 					)
 				)
 				(pin passive line
-					(at 5.08 -5.08 180)
+					(at -5.08 -5.08 0)
 					(length 3.81)
 					(name "Pin_4"
 						(effects
@@ -1010,6 +984,24 @@
 						)
 					)
 					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -10.16 90)
+					(length 3.048)
+					(name "MountPin"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "MP"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4357,12 +4349,6 @@
 		(uuid "043e2a96-4313-46c5-950c-90905b34dc81")
 	)
 	(junction
-		(at 52.07 215.9)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "05d17cc1-0e63-4a6d-aa8f-4ab91611da68")
-	)
-	(junction
 		(at 365.76 100.33)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4373,12 +4359,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0e8c7658-3fd1-4382-b4c1-48fef9329f52")
-	)
-	(junction
-		(at 116.84 156.21)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0e91061d-dc81-4c2b-b7f9-3f63ab4be210")
 	)
 	(junction
 		(at 363.22 39.37)
@@ -4417,12 +4397,6 @@
 		(uuid "40b6ea39-6777-4597-8d41-f89c53688636")
 	)
 	(junction
-		(at 43.18 215.9)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "414c2da1-05c0-4406-9af2-24a6a2e91a54")
-	)
-	(junction
 		(at 378.46 100.33)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4451,6 +4425,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "777de30b-c341-4a44-84fa-4e4711309885")
+	)
+	(junction
+		(at 43.18 215.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7c93920e-ea32-4d2b-ba61-d3719eb1bce0")
 	)
 	(junction
 		(at 58.42 43.18)
@@ -4499,12 +4479,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ef5082b8-bfd9-494f-932e-cabdcad03a85")
-	)
-	(junction
-		(at 60.96 215.9)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f560184a-6ad8-41ff-ac6a-85327e72e0fb")
 	)
 	(no_connect
 		(at 148.59 85.09)
@@ -4594,7 +4568,7 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 215.9) (xy 60.96 215.9)
+			(xy 34.29 215.9) (xy 43.18 215.9)
 		)
 		(stroke
 			(width 0)
@@ -4641,16 +4615,6 @@
 			(type default)
 		)
 		(uuid "136a22a7-a5e5-4233-885a-eac953541cdd")
-	)
-	(wire
-		(pts
-			(xy 34.29 215.9) (xy 52.07 215.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1a09e6df-925b-4675-a0c5-e4b7fd54c081")
 	)
 	(wire
 		(pts
@@ -4701,6 +4665,16 @@
 			(type default)
 		)
 		(uuid "2ecc24b5-0866-43cc-8ca3-efc02ab0c808")
+	)
+	(wire
+		(pts
+			(xy 43.18 215.9) (xy 52.07 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3150bf8d-1a18-4de4-baac-ece2921cb959")
 	)
 	(wire
 		(pts
@@ -5084,16 +5058,6 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 215.9) (xy 69.85 215.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a476f45f-7ffa-4a88-b3b9-2ee54a002d63")
-	)
-	(wire
-		(pts
 			(xy 114.3 130.81) (xy 116.84 130.81)
 		)
 		(stroke
@@ -5353,7 +5317,7 @@
 		(uuid "090bbda2-9210-48f8-aa75-0f3630315e40")
 	)
 	(label "SDA"
-		(at 114.3 76.2 0)
+		(at 114.3 77.47 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5393,7 +5357,7 @@
 		(uuid "35572573-881f-4c0a-8283-9efe1e99468c")
 	)
 	(label "3v3_OUT"
-		(at 114.3 73.66 0)
+		(at 114.3 80.01 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5401,6 +5365,16 @@
 			(justify left bottom)
 		)
 		(uuid "3d4f671b-9650-40a1-946f-0c1656bd03e3")
+	)
+	(label "SCL"
+		(at 127 90.17 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4700df01-bb05-49d2-be2e-cf90eb3067d3")
 	)
 	(label "STAT1"
 		(at 114.3 125.73 0)
@@ -5413,7 +5387,7 @@
 		(uuid "473e02ed-07fd-4b35-9d77-f56f65bbf9f5")
 	)
 	(label "SCL"
-		(at 114.3 78.74 0)
+		(at 114.3 74.93 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5511,6 +5485,16 @@
 			(justify left bottom)
 		)
 		(uuid "7bc5f6df-82ac-44e6-9779-067a3d6518cc")
+	)
+	(label "3v3_OUT"
+		(at 132.08 90.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "80f8dc24-a4ee-49ab-b4b4-198b86f403da")
 	)
 	(label "NTC"
 		(at 40.64 161.29 270)
@@ -5622,6 +5606,16 @@
 		)
 		(uuid "b96e60a4-c0b1-4433-bc12-1df199a0ee4b")
 	)
+	(label "3v3_OUT"
+		(at 132.08 97.79 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cda7ab39-cc19-496c-9303-eda6bd66f43e")
+	)
 	(label "MISO"
 		(at 182.88 54.61 0)
 		(effects
@@ -5661,6 +5655,16 @@
 			(justify left bottom)
 		)
 		(uuid "e0442e71-a4c6-4151-8dbd-7d8c36de08af")
+	)
+	(label "SDA"
+		(at 127 97.79 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e745c2e1-7157-4747-b225-68f18b87c22a")
 	)
 	(label "MISO"
 		(at 48.26 59.69 180)
@@ -6214,6 +6218,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small_US")
+		(at 129.54 90.17 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "09b85657-ad4f-403a-9175-9d82d8095170")
+		(property "Reference" "R17"
+			(at 130.048 85.598 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 130.048 88.138 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 129.54 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 129.54 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small US symbol"
+			(at 129.54 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "af5ecae1-40c7-47d5-b4c7-a977d44182fb")
+		)
+		(pin "2"
+			(uuid "fb206ff6-a6b3-4d4c-a907-23e211a95313")
+		)
+		(instances
+			(project "pipkin"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(reference "R17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "E28-2G4M27SX:E28-2G4M27SX")
 		(at 58.42 64.77 0)
 		(unit 1)
@@ -6245,7 +6328,7 @@
 				)
 			)
 		)
-		(property "Footprint" "E28-2G4M27SX_Pcb_lib:PCBComponent_1"
+		(property "Footprint" "E28:E28"
 			(at 70.612 67.818 0)
 			(hide yes)
 			(show_name no)
@@ -7283,6 +7366,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small_US")
+		(at 129.54 97.79 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2b3eded4-2105-4bc1-9f10-23ff425bb16a")
+		(property "Reference" "R18"
+			(at 130.048 93.218 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 130.048 95.758 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 129.54 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 129.54 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small US symbol"
+			(at 129.54 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5cc9be62-42e9-4b8c-a4cc-4215ec113ce1")
+		)
+		(pin "2"
+			(uuid "8c12a44b-5f43-4d47-b65b-91cbd301a204")
+		)
+		(instances
+			(project "pipkin"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(reference "R18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:LED")
 		(at 36.83 138.43 180)
 		(unit 1)
@@ -7453,7 +7615,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
-		(at 60.96 213.36 0)
+		(at 43.18 213.36 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7464,7 +7626,7 @@
 		(fields_autoplaced yes)
 		(uuid "352e8edb-4523-4a45-a355-5b68db7f12f1")
 		(property "Reference" "H5"
-			(at 63.5 210.8199 0)
+			(at 45.72 210.8199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7475,7 +7637,7 @@
 			)
 		)
 		(property "Value" "M2.5"
-			(at 63.5 213.3599 0)
+			(at 45.72 213.3599 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7486,7 +7648,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_DIN965_Pad"
-			(at 60.96 213.36 0)
+			(at 43.18 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7497,7 +7659,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 60.96 213.36 0)
+			(at 43.18 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7508,7 +7670,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
-			(at 60.96 213.36 0)
+			(at 43.18 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7762,85 +7924,6 @@
 			(project "pipkin"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR043")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole_Pad")
-		(at 52.07 213.36 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3e04f8ea-bfb3-4ccb-ba15-a282c3433f3c")
-		(property "Reference" "H4"
-			(at 54.61 210.8199 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "M2.5"
-			(at 54.61 213.3599 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_DIN965_Pad"
-			(at 52.07 213.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 52.07 213.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Mounting Hole with connection"
-			(at 52.07 213.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "afeab091-d39f-422a-9c9a-4b03c5e1784f")
-		)
-		(instances
-			(project "pipkin"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "H4")
 					(unit 1)
 				)
 			)
@@ -8397,8 +8480,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Conn_01x04_Pin")
-		(at 109.22 73.66 0)
+		(lib_id "Connector_Generic_MountingPin:Conn_01x04_MountingPin")
+		(at 109.22 80.01 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8409,27 +8492,29 @@
 		(fields_autoplaced yes)
 		(uuid "47a3ac53-68b6-4351-95b6-bc9c787cbfc8")
 		(property "Reference" "J4"
-			(at 109.855 66.04 0)
+			(at 106.68 77.1143 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Value" "I2C"
-			(at 109.855 68.58 0)
+			(at 106.68 79.6543 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
-			(at 109.22 73.66 0)
+		(property "Footprint" "Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical"
+			(at 109.22 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8440,7 +8525,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 109.22 73.66 0)
+			(at 109.22 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8450,8 +8535,8 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x04, script generated"
-			(at 109.22 73.66 0)
+		(property "Description" "Generic connectable mounting pin connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 109.22 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8473,6 +8558,9 @@
 		(pin "2"
 			(uuid "3bd0c48e-df2e-473e-8958-3a103cc8b9aa")
 		)
+		(pin "MP"
+			(uuid "e32baae6-b024-43bf-b563-3b6d9484a5b2")
+		)
 		(instances
 			(project "pipkin"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
@@ -8493,7 +8581,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4c8c4812-3d4f-4d4e-a167-bd47ec7da9b5")
-		(property "Reference" "CHARGE1"
+		(property "Reference" "CHRG1"
 			(at 36.83 126.492 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8566,7 +8654,7 @@
 		(instances
 			(project "pipkin"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "CHARGE1")
+					(reference "CHRG1")
 					(unit 1)
 				)
 			)
@@ -8730,7 +8818,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
-		(at 69.85 213.36 0)
+		(at 52.07 213.36 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8741,7 +8829,7 @@
 		(fields_autoplaced yes)
 		(uuid "5538420f-2a12-463d-95a6-f4d6b99dd421")
 		(property "Reference" "H6"
-			(at 72.39 210.8199 0)
+			(at 54.61 210.8199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8752,7 +8840,7 @@
 			)
 		)
 		(property "Value" "M2.5"
-			(at 72.39 213.3599 0)
+			(at 54.61 213.3599 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8763,7 +8851,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_DIN965_Pad"
-			(at 69.85 213.36 0)
+			(at 52.07 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8774,7 +8862,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 69.85 213.36 0)
+			(at 52.07 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8785,7 +8873,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
-			(at 69.85 213.36 0)
+			(at 52.07 213.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10489,7 +10577,8 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small_US")
-		(at 116.84 168.91 180)
+		(at 119.38 168.91 0)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10499,7 +10588,7 @@
 		(dnp no)
 		(uuid "8be86d9c-d411-4b7d-8aa8-98ea9a41ab9d")
 		(property "Reference" "R10"
-			(at 121.412 169.418 90)
+			(at 114.808 169.418 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10509,7 +10598,7 @@
 			)
 		)
 		(property "Value" "5.1k"
-			(at 118.872 169.418 90)
+			(at 117.348 169.418 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10519,7 +10608,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 116.84 168.91 0)
+			(at 119.38 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10530,7 +10619,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 116.84 168.91 0)
+			(at 119.38 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10541,7 +10630,7 @@
 			)
 		)
 		(property "Description" "Resistor, small US symbol"
-			(at 116.84 168.91 0)
+			(at 119.38 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11363,7 +11452,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 114.3 71.12 180)
+		(at 114.3 82.55 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11373,7 +11462,7 @@
 		(dnp no)
 		(uuid "a79aa434-b99e-40d1-8e9b-a192183ae327")
 		(property "Reference" "#PWR024"
-			(at 114.3 64.77 0)
+			(at 114.3 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11384,7 +11473,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 114.3 67.818 90)
+			(at 114.3 85.852 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11395,7 +11484,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 114.3 71.12 0)
+			(at 114.3 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11406,7 +11495,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 114.3 71.12 0)
+			(at 114.3 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11417,7 +11506,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 114.3 71.12 0)
+			(at 114.3 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11674,85 +11763,6 @@
 			(project "pipkin"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR010")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole_Pad")
-		(at 43.18 213.36 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b610a73e-0731-4fca-84b2-d90eda7445a1")
-		(property "Reference" "H3"
-			(at 45.72 210.8199 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "M2.5"
-			(at 45.72 213.3599 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_DIN965_Pad"
-			(at 43.18 213.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 43.18 213.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Mounting Hole with connection"
-			(at 43.18 213.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "a6433a2a-b9c9-42d2-aed6-043c1ea668d5")
-		)
-		(instances
-			(project "pipkin"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "H3")
 					(unit 1)
 				)
 			)
@@ -12471,7 +12481,8 @@
 	)
 	(symbol
 		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 116.84 161.29 90)
+		(at 119.38 161.29 270)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12481,7 +12492,7 @@
 		(dnp no)
 		(uuid "d8e96abc-9570-4408-8f40-bec510c4fb02")
 		(property "Reference" "JP2"
-			(at 114.554 159.512 0)
+			(at 121.666 159.512 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12492,7 +12503,7 @@
 			)
 		)
 		(property "Value" "LiFePO4"
-			(at 119.38 157.48 0)
+			(at 116.84 157.48 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12503,7 +12514,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 116.84 161.29 0)
+			(at 119.38 161.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12514,7 +12525,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 124.46 161.29 0)
+			(at 111.76 161.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12525,7 +12536,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 121.92 161.29 0)
+			(at 114.3 161.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13521,6 +13532,84 @@
 			(project "pipkin"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "C8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 109.22 69.85 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fc316437-9399-406b-a027-bd95a3bbbc23")
+		(property "Reference" "#PWR050"
+			(at 115.57 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 112.522 69.85 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 109.22 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 109.22 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 109.22 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1a49440c-03b8-4da2-a0e4-ac360174d858")
+		)
+		(instances
+			(project "pipkin"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(reference "#PWR050")
 					(unit 1)
 				)
 			)
