@@ -1,0 +1,25 @@
+﻿Reference,Value,Datasheet,Footprint,Qty,DNP,DigiKey Part Number
+"C1,C2,C3,C4,C5,C6,C7,C8,C9",22uF,,Capacitor_SMD:C_0805_2012Metric,9,,
+C10,100nF,,Capacitor_SMD:C_0603_1608Metric,1,,
+CHRG1,ORANGE,,LED_SMD:LED_0603_1608Metric,1,,
+D1,B240A-13-F,,Diode_SMD:D_SMA,1,,
+FAULT1,RED,,LED_SMD:LED_0603_1608Metric,1,,
+J1,Solar,,Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical,1,,455-1704-ND
+J2,Batt,,Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical,1,,455-1705-ND
+J3,UART,,Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical,1,,612-TSW-103-07-G-S-ND
+J4,I2C,,Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical,1,,455-BM04B-SRSS-TBTR-ND
+L1,1uH,,Inductor_SMD:L_Wuerth_MAPI-4020,1,,732-8228-1-ND
+L2,2.2uH,,Inductor_SMD:L_Wuerth_MAPI-4020,1,,732-8232-1-ND
+"R3,R4,R5,R6,R7,R11",10k,,Resistor_SMD:R_0402_1005Metric,6,,
+R8,300,,Resistor_SMD:R_0402_1005Metric,1,,
+R9,13k,,Resistor_SMD:R_0402_1005Metric,1,,
+R10,5.1k,,Resistor_SMD:R_0402_1005Metric,1,,
+R12,732k,,Resistor_SMD:R_0402_1005Metric,1,,
+"R13,R14,R15",100k,,Resistor_SMD:R_0402_1005Metric,3,,
+R16,453k,,Resistor_SMD:R_0402_1005Metric,1,,
+"R17,R18",4.7k,,Resistor_SMD:R_0402_1005Metric,2,DNP,
+U1,BQ25185DLHR,https://www.ti.com/lit/gpn/bq25185,BQ25185DLHR:WSON10_DLH_TEX,1,,296-BQ25185DLHRTR-ND
+U2,XIAO-nRF54l15-SMD,,New_XIAO_Series_Footprints:XIAO-nRF54l15-SMD,1,,N/A
+U3,E28-2G4M27SX,,E28:E28,1,,N/A
+U4,TPS61023DRLR,https://www.ti.com/lit/gpn/tps61023,TPS61023DRLR:DRL0006A,1,,296-TPS61023DRLRTR-ND
+U5,TLV62569DBV,http://www.ti.com/lit/ds/symlink/tlv62569.pdf,Package_TO_SOT_SMD:SOT-23-5,1,,296-47360-2-ND
