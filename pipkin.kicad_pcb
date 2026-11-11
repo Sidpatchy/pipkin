@@ -7782,15 +7782,15 @@
 			)
 		)
 	)
-	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "dd6cbd38-b17a-49e5-afbf-eb9270dd8d01")
 		(at 168 131 90)
-		(descr "Through hole straight pin header, 1x03, 2.54mm pitch, single row")
-		(tags "Through hole pin header THT 1x03 2.54mm single row")
+		(descr "Through hole straight pin header, 1x05, 2.54mm pitch, single row")
+		(tags "Through hole pin header THT 1x05 2.54mm single row")
 		(property "Reference" "J3"
 			(at 0 -2.38 90)
-			(layer "F.Fab")
+			(layer "F.SilkS")
 			(uuid "ec50628f-d61b-4426-a389-e9241d6718a5")
 			(effects
 				(font
@@ -7800,7 +7800,7 @@
 			)
 		)
 		(property "Value" "UART"
-			(at 0 7.46 90)
+			(at 0 12.54 90)
 			(layer "F.Fab")
 			(uuid "53bcd1af-94ea-423a-bcbc-824bf46b0f55")
 			(effects
@@ -7821,7 +7821,7 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x03, script generated"
+		(property "Description" "Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -7851,7 +7851,7 @@
 		(units
 			(unit
 				(name "A")
-				(pins "1" "2" "3")
+				(pins "1" "2" "3" "4" "5")
 			)
 		)
 		(attr through_hole)
@@ -7878,7 +7878,7 @@
 		)
 		(fp_line
 			(start 1.38 1.27)
-			(end 1.38 6.46)
+			(end 1.38 11.54)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -7898,7 +7898,7 @@
 		)
 		(fp_line
 			(start -1.38 1.27)
-			(end -1.38 6.46)
+			(end -1.38 11.54)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -7907,8 +7907,8 @@
 			(uuid "b9a7f061-a19c-49f4-810f-68e8125141a6")
 		)
 		(fp_line
-			(start -1.38 6.46)
-			(end 1.38 6.46)
+			(start -1.38 11.54)
+			(end 1.38 11.54)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -7918,7 +7918,7 @@
 		)
 		(fp_rect
 			(start -1.77 -1.77)
-			(end 1.77 6.85)
+			(end 1.77 11.93)
 			(stroke
 				(width 0.05)
 				(type solid)
@@ -7929,7 +7929,7 @@
 		)
 		(fp_line
 			(start 1.27 -1.27)
-			(end 1.27 6.35)
+			(end 1.27 11.43)
 			(stroke
 				(width 0.1)
 				(type solid)
@@ -7958,8 +7958,8 @@
 			(uuid "85ebf813-ed3e-4ea3-8e2c-67f282286e84")
 		)
 		(fp_line
-			(start 1.27 6.35)
-			(end -1.27 6.35)
+			(start 1.27 11.43)
+			(end -1.27 11.43)
 			(stroke
 				(width 0.1)
 				(type solid)
@@ -7968,7 +7968,7 @@
 			(uuid "4d2f3f58-98dd-496d-a4bf-0b602d4fbd7f")
 		)
 		(fp_line
-			(start -1.27 6.35)
+			(start -1.27 11.43)
 			(end -1.27 -0.635)
 			(stroke
 				(width 0.1)
@@ -7978,7 +7978,7 @@
 			(uuid "b4e995aa-32d0-479f-a6d9-13fcb15e4938")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 2.54 0)
+			(at 0 5.08 0)
 			(layer "F.Fab")
 			(uuid "bd23d7fb-c455-4f6a-8ade-ba61ba54f211")
 			(effects
@@ -8021,8 +8021,30 @@
 			(pintype "passive")
 			(uuid "9c15078f-fc15-46aa-9f22-8fb2d3b44628")
 		)
+		(pad "4" thru_hole circle
+			(at 0 7.62 90)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "+3V3")
+			(pinfunction "Pin_4_4")
+			(pintype "passive")
+			(uuid "53613136-e5aa-4acd-afa9-3684270d8eec")
+		)
+		(pad "5" thru_hole circle
+			(at 0 10.16 90)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "+5V")
+			(pinfunction "Pin_5_5")
+			(pintype "passive")
+			(uuid "740fdb9e-b1f4-4649-8256-2a55f0280aec")
+		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x03_P2.54mm_Vertical.step"
+		(model "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x05_P2.54mm_Vertical.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -10852,7 +10874,7 @@
 			(justify bottom)
 		)
 	)
-	(gr_text "REV.A"
+	(gr_text "REV.B"
 		(at 207.5 135 0)
 		(layer "F.SilkS")
 		(uuid "991fa1e7-94b6-4895-9966-b35edd7423ae")
@@ -11182,7 +11204,7 @@
 		)
 	)
 	(table
-		(column_count 3)
+		(column_count 5)
 		(uuid "3efaaa68-b150-4abd-9889-91a3c775cf63")
 		(layer "F.SilkS")
 		(border
@@ -11193,7 +11215,7 @@
 			(rows no)
 			(cols no)
 		)
-		(column_widths 2.625 2.5 2.5)
+		(column_widths 2.625 2.5 2.5 2.5 2.5)
 		(row_heights 1)
 		(cells
 			(table_cell "TX"
@@ -11231,6 +11253,34 @@
 				(span 1 1)
 				(layer "F.SilkS")
 				(uuid "4e94e163-ea6d-4efa-934c-e7747213d8c4")
+				(effects
+					(font
+						(size 0.5 0.5)
+						(bold yes)
+					)
+				)
+			)
+			(table_cell "3V3"
+				(start 174.3125 132.5)
+				(end 176.8125 133.5)
+				(margins 1.0025 1.0025 1.0025 1.0025)
+				(span 1 1)
+				(layer "F.SilkS")
+				(uuid "9fce113f-b27a-4f52-ac05-968ab9398244")
+				(effects
+					(font
+						(size 0.5 0.5)
+						(bold yes)
+					)
+				)
+			)
+			(table_cell "5V"
+				(start 176.8125 132.5)
+				(end 179.3125 133.5)
+				(margins 1.0025 1.0025 1.0025 1.0025)
+				(span 1 1)
+				(layer "F.SilkS")
+				(uuid "52cf3c6a-b2b3-494f-ac01-4f804cd3e7c1")
 				(effects
 					(font
 						(size 0.5 0.5)
@@ -12040,6 +12090,22 @@
 		(uuid "3c9aa68e-8c09-45e7-9225-33cb5cd69b28")
 	)
 	(segment
+		(start 177 129.84)
+		(end 177 129.7098)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "+5V")
+		(uuid "6731369c-0829-489c-badd-3a56bab03fd3")
+	)
+	(segment
+		(start 189.2696 129.7098)
+		(end 177 129.7098)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "+5V")
+		(uuid "8061546d-2614-4fe0-9c96-fadc3675aa24")
+	)
+	(segment
 		(start 188.5 120.2125)
 		(end 185.5 120.2125)
 		(width 0.2)
@@ -12072,12 +12138,20 @@
 		(uuid "c74e6885-6cc1-4b60-b99c-8bcaabf34afd")
 	)
 	(segment
-		(start 189.2696 129.7098)
+		(start 177 129.7098)
 		(end 172.2098 129.7098)
 		(width 0.2)
 		(layer "F.Cu")
 		(net "+5V")
 		(uuid "d5ad1566-9f4d-4a5a-8504-b50bde9e7cae")
+	)
+	(segment
+		(start 178.16 131)
+		(end 177 129.84)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "+5V")
+		(uuid "db08c726-a2cf-4f94-ae38-a908f8137f84")
 	)
 	(segment
 		(start 188.5 120.2125)
