@@ -10,10 +10,13 @@ E28-2G4M27SX (SX1281) radio module.
   commands. It does not start RX or transmit RF.
 - Scans J4's external I2C bus at 100 kHz and reports acknowledged addresses.
   Use `Wire1` for J4; the standard `Wire` pins conflict with the radio.
+- Automatically detects a BMP280 at I2C address `0x76` or `0x77` and reports
+  compensated temperature (°C) and pressure (hPa) every two seconds.
 
 The schematic shows no onboard I2C peripherals. An empty scan is expected
 unless a device is connected to J4. The optional 4.7 kΩ pull-ups R17/R18 are
-marked DNP, so the external bus must provide pull-ups.
+marked DNP, so the external bus must provide pull-ups. BMP280 probing retries
+every ten seconds when no compatible sensor is detected.
 
 ## Pin mapping
 

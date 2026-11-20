@@ -49,7 +49,13 @@ constexpr uint8_t PACKET_TYPE_LORA = 0x01;
 constexpr uint32_t RADIO_BUSY_TIMEOUT_MS = 250;
 constexpr uint32_t RADIO_POLL_INTERVAL_MS = 2000;
 constexpr uint32_t I2C_SCAN_INTERVAL_MS = 10000;
+constexpr uint32_t BMP280_READ_INTERVAL_MS = 2000;
+constexpr uint32_t BMP280_PROBE_INTERVAL_MS = 10000;
 constexpr uint32_t LED_BLINK_INTERVAL_MS = 500;
+
+constexpr uint8_t BMP280_ADDRESS_PRIMARY = 0x76;
+constexpr uint8_t BMP280_ADDRESS_SECONDARY = 0x77;
+constexpr uint8_t BMP280_CHIP_ID = 0x58;
 
 // Enable to hold NSS LOW/HIGH for multimeter testing.
 // Each state lasts five seconds.
@@ -65,6 +71,28 @@ bool statusLedOn = false;
 uint32_t lastLedToggle = 0;
 uint32_t lastRadioPoll = 0;
 uint32_t lastI2cScan = 0;
+uint32_t lastBmp280Read = 0;
+uint32_t lastBmp280Probe = 0;
+bool bmp280ProbeAttempted = false;
+
+struct Bmp280Calibration {
+  uint16_t digT1;
+  int16_t digT2;
+  int16_t digT3;
+  uint16_t digP1;
+  int16_t digP2;
+  int16_t digP3;
+  int16_t digP4;
+  int16_t digP5;
+  int16_t digP6;
+  int16_t digP7;
+  int16_t digP8;
+  int16_t digP9;
+};
+
+Bmp280Calibration bmp280Calibration = {};
+uint8_t bmp280Address = 0;
+bool bmp280Ready = false;
 
 // ============================================================
 // Utility functions
@@ -75,6 +103,63 @@ void printHex(uint8_t value) {
     Serial.print('0');
   }
   Serial.print(value, HEX);
+}
+
+void printFixed2(int32_t value) {
+  const bool negative = value < 0;
+  const uint32_t magnitude = negative
+                                 ? static_cast<uint32_t>(-static_cast<int64_t>(value))
+                                 : static_cast<uint32_t>(value);
+
+  if (negative) {
+    Serial.print('-');
+  }
+
+  Serial.print(magnitude / 100);
+  Serial.print('.');
+  if (magnitude % 100 < 10) {
+    Serial.print('0');
+  }
+  Serial.print(magnitude % 100);
+}
+
+uint16_t readU16LE(const uint8_t* bytes) {
+  return static_cast<uint16_t>(bytes[0]) |
+         (static_cast<uint16_t>(bytes[1]) << 8);
+}
+
+bool readI2cRegisters(
+    uint8_t address,
+    uint8_t firstRegister,
+    uint8_t* data,
+    uint8_t length
+) {
+  Wire1.beginTransmission(address);
+  Wire1.write(firstRegister);
+
+  if (Wire1.endTransmission(false) != 0) {
+    return false;
+  }
+
+  if (Wire1.requestFrom(address, length) != length) {
+    return false;
+  }
+
+  for (uint8_t index = 0; index < length; ++index) {
+    if (!Wire1.available()) {
+      return false;
+    }
+    data[index] = static_cast<uint8_t>(Wire1.read());
+  }
+
+  return true;
+}
+
+bool writeI2cRegister(uint8_t address, uint8_t reg, uint8_t value) {
+  Wire1.beginTransmission(address);
+  Wire1.write(reg);
+  Wire1.write(value);
+  return Wire1.endTransmission() == 0;
 }
 
 const char* busyState() {
@@ -447,6 +532,160 @@ void testRadio() {
 }
 
 // ============================================================
+// BMP280 temperature and pressure sensor
+// ============================================================
+
+bool beginBmp280At(uint8_t address) {
+  uint8_t chipId = 0;
+
+  if (!readI2cRegisters(address, 0xD0, &chipId, 1) ||
+      chipId != BMP280_CHIP_ID) {
+    return false;
+  }
+
+  uint8_t calibrationBytes[24] = {};
+  if (!readI2cRegisters(address, 0x88, calibrationBytes, sizeof(calibrationBytes))) {
+    return false;
+  }
+
+  bmp280Calibration.digT1 = readU16LE(&calibrationBytes[0]);
+  bmp280Calibration.digT2 = static_cast<int16_t>(readU16LE(&calibrationBytes[2]));
+  bmp280Calibration.digT3 = static_cast<int16_t>(readU16LE(&calibrationBytes[4]));
+  bmp280Calibration.digP1 = readU16LE(&calibrationBytes[6]);
+  bmp280Calibration.digP2 = static_cast<int16_t>(readU16LE(&calibrationBytes[8]));
+  bmp280Calibration.digP3 = static_cast<int16_t>(readU16LE(&calibrationBytes[10]));
+  bmp280Calibration.digP4 = static_cast<int16_t>(readU16LE(&calibrationBytes[12]));
+  bmp280Calibration.digP5 = static_cast<int16_t>(readU16LE(&calibrationBytes[14]));
+  bmp280Calibration.digP6 = static_cast<int16_t>(readU16LE(&calibrationBytes[16]));
+  bmp280Calibration.digP7 = static_cast<int16_t>(readU16LE(&calibrationBytes[18]));
+  bmp280Calibration.digP8 = static_cast<int16_t>(readU16LE(&calibrationBytes[20]));
+  bmp280Calibration.digP9 = static_cast<int16_t>(readU16LE(&calibrationBytes[22]));
+
+  if (bmp280Calibration.digT1 == 0 ||
+      bmp280Calibration.digP1 == 0 ||
+      !writeI2cRegister(address, 0xF5, 0x00) ||
+      !writeI2cRegister(address, 0xF4, 0x57)) {
+    return false;
+  }
+
+  bmp280Address = address;
+  bmp280Ready = true;
+
+  Serial.print("[BMP280] Detected at 0x");
+  printHex(address);
+  Serial.println("; temperature and pressure reporting enabled.");
+  return true;
+}
+
+bool beginBmp280() {
+  return beginBmp280At(BMP280_ADDRESS_PRIMARY) ||
+         beginBmp280At(BMP280_ADDRESS_SECONDARY);
+}
+
+bool readBmp280(int32_t& temperatureCentiC, int32_t& pressureCentiHpa) {
+  uint8_t data[6] = {};
+  if (!readI2cRegisters(bmp280Address, 0xF7, data, sizeof(data))) {
+    return false;
+  }
+
+  const int32_t adcPressure =
+      (static_cast<int32_t>(data[0]) << 12) |
+      (static_cast<int32_t>(data[1]) << 4) |
+      (data[2] >> 4);
+  const int32_t adcTemperature =
+      (static_cast<int32_t>(data[3]) << 12) |
+      (static_cast<int32_t>(data[4]) << 4) |
+      (data[5] >> 4);
+
+  const int64_t temperatureDelta =
+      (adcTemperature >> 4) - bmp280Calibration.digT1;
+  const int64_t var1 =
+      (((static_cast<int64_t>(adcTemperature >> 3) -
+         (static_cast<int32_t>(bmp280Calibration.digT1) << 1)) *
+        bmp280Calibration.digT2) >> 11);
+  const int64_t var2 =
+      (((temperatureDelta * temperatureDelta) >> 12) *
+       bmp280Calibration.digT3) >> 14;
+  const int64_t tFine = var1 + var2;
+
+  temperatureCentiC = static_cast<int32_t>((tFine * 5 + 128) >> 8);
+
+  int64_t pressureVar1 = tFine - 128000;
+  int64_t pressureVar2 = pressureVar1 * pressureVar1 *
+                         bmp280Calibration.digP6;
+  pressureVar2 += pressureVar1 * bmp280Calibration.digP5 *
+                  (static_cast<int64_t>(1) << 17);
+  pressureVar2 += static_cast<int64_t>(bmp280Calibration.digP4) *
+                  (static_cast<int64_t>(1) << 35);
+  pressureVar1 = ((pressureVar1 * pressureVar1 *
+                   bmp280Calibration.digP3) >> 8) +
+                 (pressureVar1 * bmp280Calibration.digP2 *
+                  (static_cast<int64_t>(1) << 12));
+  pressureVar1 =
+      (((static_cast<int64_t>(1) << 47) + pressureVar1) *
+       bmp280Calibration.digP1) >> 33;
+
+  if (pressureVar1 == 0) {
+    return false;
+  }
+
+  int64_t pressureQ24_8 =
+      (((static_cast<int64_t>(adcPressure) << 31) - pressureVar2) *
+       3125) / pressureVar1;
+  pressureVar1 =
+      (static_cast<int64_t>(bmp280Calibration.digP9) *
+       (pressureQ24_8 >> 13) * (pressureQ24_8 >> 13)) >> 25;
+  pressureVar2 =
+      (static_cast<int64_t>(bmp280Calibration.digP8) *
+       pressureQ24_8) >> 19;
+  pressureQ24_8 =
+      ((pressureQ24_8 + pressureVar1 + pressureVar2) >> 8) +
+      (static_cast<int64_t>(bmp280Calibration.digP7) * 16);
+
+  // Q24.8 pressure in Pa; Pa is also centi-hPa.
+  pressureCentiHpa = static_cast<int32_t>(pressureQ24_8 / 256);
+  return true;
+}
+
+void pollBmp280() {
+  const uint32_t now = millis();
+
+  if (!bmp280Ready) {
+    if (bmp280ProbeAttempted &&
+        now - lastBmp280Probe < BMP280_PROBE_INTERVAL_MS) {
+      return;
+    }
+
+    lastBmp280Probe = now;
+    bmp280ProbeAttempted = true;
+    if (beginBmp280()) {
+      lastBmp280Read = now;
+    }
+    return;
+  }
+
+  if (now - lastBmp280Read < BMP280_READ_INTERVAL_MS) {
+    return;
+  }
+
+  lastBmp280Read = now;
+  int32_t temperatureCentiC = 0;
+  int32_t pressureCentiHpa = 0;
+
+  if (!readBmp280(temperatureCentiC, pressureCentiHpa)) {
+    Serial.println("[BMP280] Read failed; will retry sensor detection.");
+    bmp280Ready = false;
+    return;
+  }
+
+  Serial.print("[BMP280] Temperature: ");
+  printFixed2(temperatureCentiC);
+  Serial.print(" C, Pressure: ");
+  printFixed2(pressureCentiHpa);
+  Serial.println(" hPa");
+}
+
+// ============================================================
 // Periodic SX1281 polling
 // ============================================================
 
@@ -649,6 +888,9 @@ void setup() {
   Serial.println(
       "[SYSTEM] Type 'a' to test both."
   );
+  Serial.println(
+      "[SYSTEM] BMP280 at 0x76/0x77 is detected and read automatically."
+  );
 }
 
 // ============================================================
@@ -710,6 +952,9 @@ void loop() {
     lastI2cScan = now;
     scanI2cBus();
   }
+
+  // Probe for a newly attached sensor and report readings periodically.
+  pollBmp280();
 
   delay(10);
 }
